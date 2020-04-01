@@ -61,12 +61,38 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1; }
+  z-index: 3; }
 
 .container {
   margin: 0 auto;
   max-width: 1120px;
   width: 96%; }
+
+.headroom {
+  will-change: transform;
+  -webkit-transition: -webkit-transform 200ms linear;
+  transition: -webkit-transform 200ms linear;
+  -o-transition: -o-transform 200ms linear;
+  transition: transform 200ms linear;
+  transition: transform 200ms linear, -webkit-transform 200ms linear, -o-transform 200ms linear; }
+
+.headroom--pinned {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  transform: translateY(0%); }
+
+.headroom--unpinned {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+
+.headroom--top {
+  background-color: transparent; }
+
+.headroom--unpinned {
+  display: none; }
 
 .logo {
   display: block;
@@ -101,7 +127,8 @@ header {
     transform: rotate(0deg);
     -webkit-transition: .25s ease-in-out;
     -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out; }
+    transition: .25s ease-in-out;
+    z-index: 3; }
     .menu__icon span__icon span:nth-child(1) {
       top: 0px; }
   .menu__links {
@@ -117,16 +144,26 @@ header {
       text-decoration: none;
       cursor: pointer; }
 
+.menu__icon:hover span {
+  background-color: #4144f3; }
+
 .menu__icon span:nth-child(2), .menu__icon span:nth-child(3) {
   top: 13px; }
 
 .menu__icon span:nth-child(4) {
   top: 26px; }
 
+.menu__icon span:hover {
+  color: #4144f3; }
+
 .menu__links--item:hover {
   border: 1px solid #fff;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+@media screen and (min-width: 999px) {
+  .menu__links--item:hover {
+    padding: 0 9px; } }
 
 .menu.menu_state_open .menu__icon span:nth-child(1) {
   top: 18px;
@@ -162,7 +199,6 @@ header {
     top: 0;
     right: 0;
     left: 0;
-    margin-top: 52px;
     background-color: #9f9acf;
     opacity: .9;
     z-index: 2;
@@ -929,3 +965,9 @@ header {
       font-family: "PT Sans", sans-serif; }
   .footer__socials {
     display: inline-block; }
+
+.author {
+  text-decoration: none;
+  color: inherit; }
+  .author:hover {
+    color: #4144f3; }

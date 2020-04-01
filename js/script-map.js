@@ -172,7 +172,7 @@ initMap = function() {
 
   marker = new google.maps.Marker({
     position: posMark,
-    icon: 'img/marker-map.png',
+    icon: 'img/pin.svg',
     map: map
   });
            var contentmark = 
